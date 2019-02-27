@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "国家局",
   "author": "neusoft.com",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
