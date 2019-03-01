@@ -21,7 +21,7 @@
         </div>
       </nav>
     </header>
-    <router-view>111</router-view>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -29,7 +29,9 @@
   import { mapState } from 'vuex'
   export default {
     name: 'App',
-    mounted () { },
+    mounted () {
+      this.init()
+    },
     data () {
       return {
       }
@@ -39,7 +41,19 @@
       ])
     },
     methods: {
-      init () { }
+      init () {
+        if (process.env.NODE_ENV === 'development') {
+          const H = document.documentElement.clientHeight || document.body.clientHeight
+          var W = H * 4.5
+          console.log('屏宽:', W)
+          console.log('屏高:', H)
+        } else {
+          const W = document.documentElement.clientWidth || document.body.clientWidth
+          var H = W / 4.5
+          console.log('屏宽', W)
+          console.log('屏高', H)
+        }
+      }
     },
     watch: {
     }

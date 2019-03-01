@@ -41,6 +41,7 @@ service.interceptors.response.use(
     }
   },
   error => {
+    this.$throw(error)
     console.log('err' + error)// for debug
     return Promise.reject(error)
   }

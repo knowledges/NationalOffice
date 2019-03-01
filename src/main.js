@@ -20,10 +20,13 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   Vue.config.devtools = false
 }
-Vue.config.errorHandler = (err, vm, info) => {
+
+const errorHandler = (err, vm, info) => {
   console.log(err)
   console.log(info)
 }
+Vue.config.errorHandler = errorHandler
+Vue.prototype.$throw = (error) => errorHandler(error, this)
 
 // Routing logic
 var router = new VueRouter({
